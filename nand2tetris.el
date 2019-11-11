@@ -310,5 +310,14 @@ Interactively, prompt for symbol."
                . 'nand2tetris-mode))
 
 
+(defun nand2teris//increment-once ()
+  (interactive)
+  (beginning-of-line)
+  (while (re-search-forward "\\[\\([0-9]+\\)\\]" nil t)
+    (replace-match (number-to-string
+		     (1+ (string-to-number (match-string 1))))
+		   nil nil nil 1)))
+
+
 (provide 'nand2tetris)
 ;;; nand2tetris.el ends here
